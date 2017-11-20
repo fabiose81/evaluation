@@ -25,12 +25,12 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "segue", sender: self)
+        self.performSegue(withIdentifier: "evaluation", sender: self)
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
-        if segue.identifier == "segue" ,
+        if segue.identifier == "evaluation" ,
             let evaluationViewController = segue.destination as? EvaluationViewController ,
             let indexPath = tableViewEleves.indexPathForSelectedRow {
                let eleveObj = EleveObj(id: indexPath.row, name: "Teste")

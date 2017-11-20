@@ -13,11 +13,11 @@ class EleveObj {
     
     var id: Int!
     var name: String!
+    var score: [Int]
     
-    // Constructor to a new card
-    init(id: Int!, name: String!) {
+    init(id: Int!, name: String!, score: [Int]!) {
         self.id = id
         self.name = name
+        self.score = score
     }
-    
 }
