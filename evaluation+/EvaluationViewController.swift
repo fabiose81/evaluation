@@ -15,8 +15,9 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var labelScore: UILabel!
     
     var eleveObj: EleveObj!
-    var arrayOfScore = [0,0,0,0,0]
     var scoreEleve = Int(0)
+    
+    var userDefaultsManager = UserDefaultsManager()
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -27,6 +28,7 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
         
         if let slider =  cell.viewWithTag(100) as! UISlider! {
             slider.tag = indexPath.row
+            slider.value = Float(eleveObj.score[indexPath.row])
             slider.addTarget(self, action:#selector(EvaluationViewController.sliderValueDidChange(_:)), for: .valueChanged)
         }
         
@@ -39,10 +41,10 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
         let roundedValue = round(sender.value / 25) * 25
         sender.value = roundedValue
         
-        arrayOfScore[sender.tag] = Int(sender.value)
+        eleveObj.score[sender.tag] = Int(sender.value)
        
         var sum = 0;
-        for score in arrayOfScore
+        for score in eleveObj.score
         {
             sum += score
         }
@@ -50,6 +52,22 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
         scoreEleve = sum * 100 / 500
         labelScore.text = "\(String(Int(scoreEleve)))/100"
     }
+    
+    @IBAction func actionSave(_ sender: UIButton) {
+        var data = userDefaultsManager.getData(theKey: "eleves")
+        var eleves = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [EleveObj])!
+        
+        let index = eleves.index(where: { (eleve) -> Bool in
+            eleve.id == eleveObj.id
+        })
+        
+        eleves[index!] = eleveObj
+        
+        data = NSKeyedArchiver.archivedData(withRootObject: eleves);
+        userDefaultsManager.setKey(theValue: data as AnyObject, key: "eleves")
+       
+    }
+    
     
     @IBAction func actionBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

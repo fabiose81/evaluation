@@ -56,20 +56,10 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         {
             eleves.remove(at: indexPath.row)
             
-           /* let keyFrancais = Array(dictionnaireFrancaisAnglais.keys)[indexPath.row]
-            let keyAnglais = dictionnaireFrancaisAnglais[keyFrancais]
+            let data = NSKeyedArchiver.archivedData(withRootObject: eleves);
+            userDefaultsManager.setKey(theValue: data as AnyObject, key: "eleves")
             
-            dictionnaireFrancaisAnglais.removeValue(forKey:keyFrancais)
-            dictionnaireAnglaisFrancais.removeValue(forKey: keyAnglais!)
-            
-            dictionnaireFrancaisAnglaisSorted.remove(at: indexPath.row)
-            
-            userDefaultsManager.setKey(theValue: dictionnaireFrancaisAnglais as AnyObject, key: "dictionnaireFrancaisAnglais")
-            userDefaultsManager.setKey(theValue: dictionnaireAnglaisFrancais as AnyObject, key: "dictionnaireAnglaisFrancais")
-            
-            userDefaultsManager.setKey(theValue: true as AnyObject, key: "misAJour")
-            
-            tableViewMotAjoute.deleteRows(at: [indexPath], with: .automatic)*/
+            tableViewEleves.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
