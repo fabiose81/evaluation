@@ -37,6 +37,10 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
                evaluationViewController.eleveObj = eleveObj
         }
     }
+    
+    @IBAction func back(_ sender: UIButton){
+        navigationController?.popViewController(animated: true)
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
