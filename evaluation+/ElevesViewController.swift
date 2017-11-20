@@ -8,17 +8,40 @@
 
 import UIKit
 
+
 class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var textFieldEleveName: UITextField!
     
     @IBOutlet weak var tableViewEleves: UITableView!
     
+    var eleves = [EleveObj]()
+    
+    var userDefaultsManager = UserDefaultsManager()
+    
+    @IBAction func actionAddEleve(_ sender: UIButton) {
+        let id = eleves.count + 1
+        let name = textFieldEleveName.text
+        let score = [0,0,0,0,0]
+        let eleveObj = EleveObj(id: id, name: name, score: score)
+        
+        eleves.append(eleveObj)
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: eleves);
+        userDefaultsManager.setKey(theValue: data as AnyObject, key: "eleves")
+        
+        tableViewEleves.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return eleves.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        
+        let name = eleves[indexPath.row].name
+        cell.textLabel?.text = name
         
         return cell
     }
@@ -28,12 +51,33 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.performSegue(withIdentifier: "evaluation", sender: self)
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete)
+        {
+            eleves.remove(at: indexPath.row)
+            
+           /* let keyFrancais = Array(dictionnaireFrancaisAnglais.keys)[indexPath.row]
+            let keyAnglais = dictionnaireFrancaisAnglais[keyFrancais]
+            
+            dictionnaireFrancaisAnglais.removeValue(forKey:keyFrancais)
+            dictionnaireAnglaisFrancais.removeValue(forKey: keyAnglais!)
+            
+            dictionnaireFrancaisAnglaisSorted.remove(at: indexPath.row)
+            
+            userDefaultsManager.setKey(theValue: dictionnaireFrancaisAnglais as AnyObject, key: "dictionnaireFrancaisAnglais")
+            userDefaultsManager.setKey(theValue: dictionnaireAnglaisFrancais as AnyObject, key: "dictionnaireAnglaisFrancais")
+            
+            userDefaultsManager.setKey(theValue: true as AnyObject, key: "misAJour")
+            
+            tableViewMotAjoute.deleteRows(at: [indexPath], with: .automatic)*/
+        }
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
         if segue.identifier == "evaluation" ,
             let evaluationViewController = segue.destination as? EvaluationViewController ,
             let indexPath = tableViewEleves.indexPathForSelectedRow {
-               let eleveObj = EleveObj(id: indexPath.row, name: "Teste")
+               let eleveObj = eleves[indexPath.row]
                evaluationViewController.eleveObj = eleveObj
         }
     }
@@ -43,6 +87,11 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
    
     override func viewDidLoad() {
+        if userDefaultsManager.doesKeyExist(theKey: "eleves") {
+            let data = userDefaultsManager.getData(theKey: "eleves")
+            eleves = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [EleveObj])!
+        }
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
