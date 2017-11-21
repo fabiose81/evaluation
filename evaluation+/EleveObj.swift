@@ -11,18 +11,18 @@ import Foundation
 
 class EleveObj: NSObject, NSCoding {
     
-    var id: Int!
+    var id: Int64!
     var name: String!
     var score: [Int]
     
-    init(id: Int!, name: String!, score: [Int]!) {
+    init(id: Int64!, name: String!, score: [Int]!) {
         self.id = id
         self.name = name
         self.score = score
     }
     
     required init(coder decoder: NSCoder) {
-        id = decoder.decodeObject(forKey: "id") as? Int
+        id = decoder.decodeObject(forKey: "id") as? Int64
         name = decoder.decodeObject(forKey: "name") as? String
         score = (decoder.decodeObject(forKey: "score") as? [Int])!
     }

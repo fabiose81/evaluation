@@ -16,6 +16,7 @@
 		9BE8956E1FBE1F93005071B5 /* EleveObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE8956D1FBE1F93005071B5 /* EleveObj.swift */; };
 		9BE895721FC32E9C005071B5 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE895711FC32E9C005071B5 /* UserDefaultsManager.swift */; };
 		9BE895741FC46917005071B5 /* CriteriaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE895731FC46917005071B5 /* CriteriaViewController.swift */; };
+		9BE8957D1FC47D5E005071B5 /* CriteriaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE8957B1FC47D5E005071B5 /* CriteriaTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9BE8956D1FBE1F93005071B5 /* EleveObj.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EleveObj.swift; sourceTree = "<group>"; };
 		9BE895711FC32E9C005071B5 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		9BE895731FC46917005071B5 /* CriteriaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteriaViewController.swift; sourceTree = "<group>"; };
+		9BE8957B1FC47D5E005071B5 /* CriteriaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CriteriaTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				9BE895681FBE17A8005071B5 /* ElevesViewController.swift */,
 				9BE8956D1FBE1F93005071B5 /* EleveObj.swift */,
 				9BE895731FC46917005071B5 /* CriteriaViewController.swift */,
+				9BE8957B1FC47D5E005071B5 /* CriteriaTableViewCell.swift */,
 			);
 			path = "evaluation+";
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 				9BE895721FC32E9C005071B5 /* UserDefaultsManager.swift in Sources */,
 				9BE8956E1FBE1F93005071B5 /* EleveObj.swift in Sources */,
 				9BE895591FBDF8D9005071B5 /* EvaluationViewController.swift in Sources */,
+				9BE8957D1FC47D5E005071B5 /* CriteriaTableViewCell.swift in Sources */,
 				9BE895571FBDF8D9005071B5 /* AppDelegate.swift in Sources */,
 				9BE895741FC46917005071B5 /* CriteriaViewController.swift in Sources */,
 			);

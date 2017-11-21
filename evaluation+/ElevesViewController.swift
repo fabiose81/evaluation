@@ -24,10 +24,9 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func actionAddEleve(_ sender: UIButton) {
-        let id = eleves.count + 1
         let name = textFieldEleveName.text
         let score = [0,0,0,0,0]
-        let eleveObj = EleveObj(id: id, name: name, score: score)
+        let eleveObj = EleveObj(id: Int64(Date().timeIntervalSince1970 * 1000), name: name, score: score)
         
         eleves.append(eleveObj)
         
