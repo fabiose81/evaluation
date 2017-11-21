@@ -19,6 +19,10 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     
     var userDefaultsManager = UserDefaultsManager()
     
+    @IBAction func actionBack(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
@@ -68,10 +72,6 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
        
     }
     
-    
-    @IBAction func actionBack(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
     
     override func viewDidLoad() {
         labelEleve.text = eleveObj.name

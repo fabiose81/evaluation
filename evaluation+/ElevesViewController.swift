@@ -19,6 +19,10 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var userDefaultsManager = UserDefaultsManager()
     
+    @IBAction func actionBack(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func actionAddEleve(_ sender: UIButton) {
         let id = eleves.count + 1
         let name = textFieldEleveName.text
