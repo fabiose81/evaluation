@@ -54,18 +54,11 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
         
         eleveObj.score[sender.tag].ponctuation = String(sender.value)
    
-        var sum = Float(0.0);
-        for score in eleveObj.score
-        {
-            sum += Float(score.ponctuation)!
-        }
-        
-         scoreEleve = sum * 100 / Float((eleveObj.score.count * 100))
-         labelScore.text = "\(String(Int(scoreEleve)))/100"
+        xxx()
     }
     
     @IBAction func actionSave(_ sender: UIButton) {
-        /*var data = userDefaultsManager.getData(theKey: "eleves")
+        var data = userDefaultsManager.getData(theKey: "eleves")
         var eleves = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [EleveObj])!
         
         let index = eleves.index(where: { (eleve) -> Bool in
@@ -75,19 +68,11 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
         eleves[index!] = eleveObj
         
         data = NSKeyedArchiver.archivedData(withRootObject: eleves);
-        userDefaultsManager.setKey(theValue: data as AnyObject, key: "eleves")*/
-        
-       /* for eleve in eleveObj.score{
-            print(eleve.ponctuation)
-        }*/
-       
+        userDefaultsManager.setKey(theValue: data as AnyObject, key: "eleves")
     }
     
     
     override func viewDidLoad() {
-        labelEleve.text = eleveObj.name
-        labelScore.text = "\(String(scoreEleve))/100"
-        
         if userDefaultsManager.doesKeyExist(theKey: "criterias") {
             let data = userDefaultsManager.getData(theKey: "criterias")
             let criterias = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [CriteriaObj])!
@@ -116,11 +101,24 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
         
+        xxx()
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-
+    func xxx(){
+        labelEleve.text = eleveObj.name
+        var sum = Float(0.0);
+        for score in eleveObj.score
+        {
+            sum += Float(score.ponctuation)!
+        }
+        
+        scoreEleve = sum * 100 / Float((eleveObj.score.count * 100))
+        labelScore.text = "\(String(Int(scoreEleve)))/100"
+    }
+    
     func findByCriteria(id: Int64) -> Bool{
         for eleve in eleveObj.score {
             if eleve.id == id {
