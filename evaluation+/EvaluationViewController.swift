@@ -21,7 +21,7 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     @IBOutlet weak var labelScore: UILabel!
     
     var eleveObj: EleveObj!
-    var scoreEleve = Int(0)
+    var scoreEleve = Float(0.0);
     
     var userDefaultsManager = UserDefaultsManager()
     
@@ -39,32 +39,33 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
         let desc = eleveObj.score[indexPath.row].desc
         
         cell.labelDescriptionCriteria.text = desc
-        //cell.slidePonctuationCriteria.value = Float(eleveObj.score[indexPath.row])
-       // cell.slidePonctuationCriteria.addTarget(self, action:#selector(EvaluationViewController.sliderValueDidChange(_:)), for: .valueChanged)
+        cell.slidePonctuationCriteria.value = Float(eleveObj.score[indexPath.row].ponctuation)!
+        cell.slidePonctuationCriteria.tag = indexPath.row
+        cell.slidePonctuationCriteria.addTarget(self, action:#selector(EvaluationViewController.sliderValueDidChange(_:)), for: .valueChanged)
         
         return cell
     }
     
     
-  /*  @objc func sliderValueDidChange(_ sender:UISlider!)
+    @objc func sliderValueDidChange(_ sender:UISlider!)
     {
         let roundedValue = round(sender.value / 25) * 25
         sender.value = roundedValue
         
-        eleveObj.score[sender.tag] = Int(sender.value)
-       
-        var sum = 0;
+        eleveObj.score[sender.tag].ponctuation = String(sender.value)
+   
+        var sum = Float(0.0);
         for score in eleveObj.score
         {
-            sum += score
+            sum += Float(score.ponctuation)!
         }
         
-        scoreEleve = sum * 100 / (criterias.count * 100)
-        labelScore.text = "\(String(Int(scoreEleve)))/100"
-    }*/
+         scoreEleve = sum * 100 / Float((eleveObj.score.count * 100))
+         labelScore.text = "\(String(Int(scoreEleve)))/100"
+    }
     
     @IBAction func actionSave(_ sender: UIButton) {
-        var data = userDefaultsManager.getData(theKey: "eleves")
+        /*var data = userDefaultsManager.getData(theKey: "eleves")
         var eleves = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [EleveObj])!
         
         let index = eleves.index(where: { (eleve) -> Bool in
@@ -74,7 +75,11 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
         eleves[index!] = eleveObj
         
         data = NSKeyedArchiver.archivedData(withRootObject: eleves);
-        userDefaultsManager.setKey(theValue: data as AnyObject, key: "eleves")
+        userDefaultsManager.setKey(theValue: data as AnyObject, key: "eleves")*/
+        
+       /* for eleve in eleveObj.score{
+            print(eleve.ponctuation)
+        }*/
        
     }
     
