@@ -12,9 +12,9 @@ class CriteriaObj: NSObject, NSCoding {
     
     var id: Int64!
     var desc: String
-    var ponctuation: Int
-    
-    init(id: Int64!, desc: String!, ponctuation: Int!) {
+    var ponctuation: String
+        
+    init(id: Int64!, desc: String!, ponctuation: String!) {
         self.id = id
         self.desc = desc
         self.ponctuation = ponctuation
@@ -23,7 +23,7 @@ class CriteriaObj: NSObject, NSCoding {
     required init(coder decoder: NSCoder) {
         id = decoder.decodeObject(forKey: "id") as? Int64
         desc = (decoder.decodeObject(forKey: "desc") as? String)!
-        ponctuation = (decoder.decodeObject(forKey: "ponctuation") as? Int)!
+        ponctuation = (decoder.decodeObject(forKey: "ponctuation") as? String)!
     }
     
     func encode(with coder: NSCoder) {

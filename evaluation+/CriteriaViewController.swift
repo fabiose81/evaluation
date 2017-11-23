@@ -22,22 +22,24 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBOutlet weak var tableViewCriteria: UITableView!
     
-    var criteriaObj: CriteriaObj!
-    
     var criterias = [CriteriaObj]()
+    
+    var userDefaultsManager = UserDefaultsManager()
     
     @IBAction func actionBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func actionAddCriteria(_ sender: UIButton) {
-      //  let criteriaTableViewCell = CriteriaTableViewCell()
         let description = textViewDescriptionCriteria.text
-        let ponctuation = Int(textFieldPonctuationCriteria.text!)
+        let ponctuation = textFieldPonctuationCriteria.text
         
         let criteriaObj = CriteriaObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, ponctuation: ponctuation)
         
         criterias.append(criteriaObj)
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: criterias);
+        userDefaultsManager.setKey(theValue: data as AnyObject, key: "criterias")
         
         tableViewCriteria.reloadData()
     }
@@ -47,15 +49,35 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "criteria")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "criteria", for: indexPath) as! CriteriaTableViewCell
+       
+        let desc = criterias[indexPath.row].desc
+        let ponctuation = criterias[indexPath.row].ponctuation
         
-       /* let name = eleves[indexPath.row].name
-        cell.textLabel?.text = name*/
+        cell.textViewDescriptionCriteria.text = desc
+        cell.labelPonctuationCriteria.text = String(ponctuation)
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete)
+        {
+            criterias.remove(at: indexPath.row)
+            
+            let data = NSKeyedArchiver.archivedData(withRootObject: criterias);
+            userDefaultsManager.setKey(theValue: data as AnyObject, key: "criterias")
+            
+            tableViewCriteria.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     override func viewDidLoad() {
+        if userDefaultsManager.doesKeyExist(theKey: "criterias") {
+            let data = userDefaultsManager.getData(theKey: "criterias")
+            criterias = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [CriteriaObj])!
+        }
+        
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.

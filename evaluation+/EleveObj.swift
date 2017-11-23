@@ -13,9 +13,9 @@ class EleveObj: NSObject, NSCoding {
     
     var id: Int64!
     var name: String!
-    var score: [Int]
+    var score: [CriteriaObj]
     
-    init(id: Int64!, name: String!, score: [Int]!) {
+    init(id: Int64!, name: String!, score: [CriteriaObj]!) {
         self.id = id
         self.name = name
         self.score = score
@@ -24,7 +24,7 @@ class EleveObj: NSObject, NSCoding {
     required init(coder decoder: NSCoder) {
         id = decoder.decodeObject(forKey: "id") as? Int64
         name = decoder.decodeObject(forKey: "name") as? String
-        score = (decoder.decodeObject(forKey: "score") as? [Int])!
+        score = (decoder.decodeObject(forKey: "score") as? [CriteriaObj])!
     }
     
     func encode(with coder: NSCoder) {

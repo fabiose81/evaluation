@@ -8,8 +8,14 @@
 
 import UIKit
 
-class EvaluationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class EvaluationTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var labelDescriptionCriteria: UILabel!
+    @IBOutlet weak var slidePonctuationCriteria: UISlider!
+    
+}
+
+class EvaluationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var labelEleve: UILabel!
     @IBOutlet weak var labelScore: UILabel!
@@ -24,23 +30,23 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return eleveObj.score.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "evaluation", for: indexPath) as! EvaluationTableViewCell
         
-        if let slider =  cell.viewWithTag(100) as! UISlider! {
-            slider.tag = indexPath.row
-            slider.value = Float(eleveObj.score[indexPath.row])
-            slider.addTarget(self, action:#selector(EvaluationViewController.sliderValueDidChange(_:)), for: .valueChanged)
-        }
+        let desc = eleveObj.score[indexPath.row].desc
+        
+        cell.labelDescriptionCriteria.text = desc
+        //cell.slidePonctuationCriteria.value = Float(eleveObj.score[indexPath.row])
+       // cell.slidePonctuationCriteria.addTarget(self, action:#selector(EvaluationViewController.sliderValueDidChange(_:)), for: .valueChanged)
         
         return cell
     }
     
     
-    @objc func sliderValueDidChange(_ sender:UISlider!)
+  /*  @objc func sliderValueDidChange(_ sender:UISlider!)
     {
         let roundedValue = round(sender.value / 25) * 25
         sender.value = roundedValue
@@ -53,9 +59,9 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
             sum += score
         }
         
-        scoreEleve = sum * 100 / 500
+        scoreEleve = sum * 100 / (criterias.count * 100)
         labelScore.text = "\(String(Int(scoreEleve)))/100"
-    }
+    }*/
     
     @IBAction func actionSave(_ sender: UIButton) {
         var data = userDefaultsManager.getData(theKey: "eleves")
@@ -77,15 +83,61 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
         labelEleve.text = eleveObj.name
         labelScore.text = "\(String(scoreEleve))/100"
         
+        if userDefaultsManager.doesKeyExist(theKey: "criterias") {
+            let data = userDefaultsManager.getData(theKey: "criterias")
+            let criterias = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [CriteriaObj])!
+            
+            if eleveObj.score.count == 0
+            {
+                eleveObj.score = criterias
+            }
+            else if eleveObj.score.count < criterias.count
+            {
+                for criteria in criterias {
+                    let found = findByCriteria(id: criteria.id)
+                    if (found == false){
+                        eleveObj.score.append(criteria)
+                    }
+                }
+            }else
+            {
+                for index in 0..<eleveObj.score.count
+                {
+                    let found = findEleve(id: eleveObj.score[index].id, criterias: criterias)
+                    if (found == false){
+                        eleveObj.score.remove(at: index)
+                    }
+                }
+            }
+        }
+        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
 
+    func findByCriteria(id: Int64) -> Bool{
+        for eleve in eleveObj.score {
+            if eleve.id == id {
+                return true
+            }
+        }
+        return false;
+    }
+
+    func findEleve(id: Int64, criterias: [CriteriaObj]) -> Bool{
+        let _criterias = criterias
+        for criteria in _criterias {
+            if criteria.id == id {
+                return true
+            }
+        }
+        return false;
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
 
