@@ -31,17 +31,40 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     @IBAction func actionAddCriteria(_ sender: UIButton) {
-        let description = textViewDescriptionCriteria.text
-        let ponctuation = textFieldPonctuationCriteria.text
+        let description = String(describing: textViewDescriptionCriteria.text!).trimmingCharacters(in: .whitespaces)
+        let ponctuation = String(describing: textFieldPonctuationCriteria.text!).trimmingCharacters(in: .whitespaces)
         
-        let criteriaObj = CriteriaObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, ponctuation: ponctuation)
         
-        criterias.append(criteriaObj)
+        if description != "" && ponctuation != ""
+        {
+            let criteriaObj = CriteriaObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, ponctuation: ponctuation)
+            
+            criterias.append(criteriaObj)
+            
+            let data = NSKeyedArchiver.archivedData(withRootObject: criterias);
+            userDefaultsManager.setKey(theValue: data as AnyObject, key: "criterias")
+            
+            tableViewCriteria.reloadData()
+        }
+        else
+        {
+            let alertController = UIAlertController(title: "Evaluation+", message: "Please, fill the fields", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+        }
         
-        let data = NSKeyedArchiver.archivedData(withRootObject: criterias);
-        userDefaultsManager.setKey(theValue: data as AnyObject, key: "criterias")
-        
-        tableViewCriteria.reloadData()
+        hideKeyboard()
+    }
+    
+    @IBAction func actionHideKeyboard(_ sender: UIButton) {
+        hideKeyboard()
+    }
+    
+    func hideKeyboard()
+    {
+        textViewDescriptionCriteria.resignFirstResponder()
+        textFieldPonctuationCriteria.resignFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

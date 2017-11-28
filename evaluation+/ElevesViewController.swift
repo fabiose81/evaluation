@@ -24,16 +24,29 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     @IBAction func actionAddEleve(_ sender: UIButton) {
-        let name = textFieldEleveName.text
-        let score = [CriteriaObj]()
-        let eleveObj = EleveObj(id: Int64(Date().timeIntervalSince1970 * 1000), name: name, score: score)
+        let name = String(describing: textFieldEleveName.text!).trimmingCharacters(in: .whitespaces) 
         
-        eleves.append(eleveObj)
-        
-        let data = NSKeyedArchiver.archivedData(withRootObject: eleves);
-        userDefaultsManager.setKey(theValue: data as AnyObject, key: "eleves")
-        
-        tableViewEleves.reloadData()
+        if name != ""
+        {
+            let score = [CriteriaObj]()
+            let eleveObj = EleveObj(id: Int64(Date().timeIntervalSince1970 * 1000), name: name, score: score)
+            
+            eleves.append(eleveObj)
+            
+            let data = NSKeyedArchiver.archivedData(withRootObject: eleves);
+            userDefaultsManager.setKey(theValue: data as AnyObject, key: "eleves")
+            
+            tableViewEleves.reloadData()
+            
+            textFieldEleveName.resignFirstResponder()
+        }
+        else
+        {
+            let alertController = UIAlertController(title: "Evaluation+", message: "Please, put the name", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+            alertController.addAction(defaultAction)
+            present(alertController, animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
