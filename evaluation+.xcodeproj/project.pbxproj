@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B8681FE1FCDBBA2002E4567 /* DisciplineObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */; };
+		9B8682001FCDBD87002E4567 /* DisciplineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */; };
 		9BE895571FBDF8D9005071B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE895561FBDF8D9005071B5 /* AppDelegate.swift */; };
 		9BE895591FBDF8D9005071B5 /* EvaluationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE895581FBDF8D9005071B5 /* EvaluationViewController.swift */; };
 		9BE8955C1FBDF8D9005071B5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE8955A1FBDF8D9005071B5 /* Main.storyboard */; };
@@ -20,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisciplineObj.swift; sourceTree = "<group>"; };
+		9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineViewController.swift; sourceTree = "<group>"; };
 		9BE895531FBDF8D9005071B5 /* evaluation+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "evaluation+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE895561FBDF8D9005071B5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BE895581FBDF8D9005071B5 /* EvaluationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluationViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +68,7 @@
 		9BE895551FBDF8D9005071B5 /* evaluation+ */ = {
 			isa = PBXGroup;
 			children = (
+				9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */,
 				9BE895711FC32E9C005071B5 /* UserDefaultsManager.swift */,
 				9BE895561FBDF8D9005071B5 /* AppDelegate.swift */,
 				9BE895581FBDF8D9005071B5 /* EvaluationViewController.swift */,
@@ -75,6 +80,7 @@
 				9BE8956D1FBE1F93005071B5 /* EleveObj.swift */,
 				9BE895731FC46917005071B5 /* CriteriaViewController.swift */,
 				9BE8957F1FC487FD005071B5 /* CriteriaObj.swift */,
+				9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */,
 			);
 			path = "evaluation+";
 			sourceTree = "<group>";
@@ -157,6 +163,8 @@
 				9BE895801FC487FD005071B5 /* CriteriaObj.swift in Sources */,
 				9BE8956E1FBE1F93005071B5 /* EleveObj.swift in Sources */,
 				9BE895591FBDF8D9005071B5 /* EvaluationViewController.swift in Sources */,
+				9B8681FE1FCDBBA2002E4567 /* DisciplineObj.swift in Sources */,
+				9B8682001FCDBD87002E4567 /* DisciplineViewController.swift in Sources */,
 				9BE895571FBDF8D9005071B5 /* AppDelegate.swift in Sources */,
 				9BE895741FC46917005071B5 /* CriteriaViewController.swift in Sources */,
 			);

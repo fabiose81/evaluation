@@ -13,24 +13,24 @@ class EleveObj: NSObject, NSCoding {
     
     var id: Int64!
     var name: String!
-    var score: [CriteriaObj]
+    var discipline: [DisciplineObj]
     
-    init(id: Int64!, name: String!, score: [CriteriaObj]!) {
+    init(id: Int64!, name: String!,discipline: [DisciplineObj]!) {
         self.id = id
         self.name = name
-        self.score = score
+        self.discipline = discipline
     }
     
     required init(coder decoder: NSCoder) {
         id = decoder.decodeObject(forKey: "id") as? Int64
         name = decoder.decodeObject(forKey: "name") as? String
-        score = (decoder.decodeObject(forKey: "score") as? [CriteriaObj])!
+        discipline = (decoder.decodeObject(forKey: "discipline") as? [DisciplineObj])!
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(id, forKey: "id")
         coder.encode(name, forKey: "name")
-        coder.encode(score, forKey: "score")
+        coder.encode(discipline, forKey: "discipline")
     }
 }
 

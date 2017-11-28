@@ -30,16 +30,18 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eleveObj.score.count
+        return 5 /*eleveObj.score.count*/
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "evaluation", for: indexPath) as! EvaluationTableViewCell
         
-        let desc = eleveObj.score[indexPath.row].desc
+      /*  let desc = eleveObj.score[indexPath.row].desc
+        
+        print( Float(eleveObj.score[indexPath.row].ponctuation)!)
         
         cell.labelDescriptionCriteria.text = desc
-        cell.slidePonctuationCriteria.value = Float(eleveObj.score[indexPath.row].ponctuation)!
+        cell.slidePonctuationCriteria.value = Float(eleveObj.score[indexPath.row].ponctuation)!*/
         cell.slidePonctuationCriteria.tag = indexPath.row
         cell.slidePonctuationCriteria.addTarget(self, action:#selector(EvaluationViewController.sliderValueDidChange(_:)), for: .valueChanged)
         
@@ -52,7 +54,7 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
         let roundedValue = round(sender.value / 25) * 25
         sender.value = roundedValue
         
-        eleveObj.score[sender.tag].ponctuation = String(sender.value)
+     //   eleveObj.score[sender.tag].ponctuation = String(sender.value)
    
         xxx()
     }
@@ -73,7 +75,7 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     
     
     override func viewDidLoad() {
-        if userDefaultsManager.doesKeyExist(theKey: "criterias") {
+       /* if userDefaultsManager.doesKeyExist(theKey: "criterias") {
             let data = userDefaultsManager.getData(theKey: "criterias")
             let criterias = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [CriteriaObj])!
             
@@ -99,7 +101,7 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
                     }
                 }
             }
-        }
+        }*/
         
         xxx()
         
@@ -108,7 +110,7 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func xxx(){
-        labelEleve.text = eleveObj.name
+      /*  labelEleve.text = eleveObj.name
         var sum = Float(0.0);
         for score in eleveObj.score
         {
@@ -116,15 +118,15 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
         }
         
         scoreEleve = sum * 100 / Float((eleveObj.score.count * 100))
-        labelScore.text = "\(String(Int(scoreEleve)))/100"
+        labelScore.text = "\(String(Int(scoreEleve)))/100"*/
     }
     
     func findByCriteria(id: Int64) -> Bool{
-        for eleve in eleveObj.score {
+        /*for eleve in eleveObj.score {
             if eleve.id == id {
                 return true
             }
-        }
+        }*/
         return false;
     }
 

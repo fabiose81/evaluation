@@ -26,7 +26,7 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func actionAddEleve(_ sender: UIButton) {
         let name = String(describing: textFieldEleveName.text!).trimmingCharacters(in: .whitespaces) 
         
-        if name != ""
+      /*  if name != ""
         {
             let score = [CriteriaObj]()
             let eleveObj = EleveObj(id: Int64(Date().timeIntervalSince1970 * 1000), name: name, score: score)
@@ -46,7 +46,7 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
-        }
+        }*/
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
