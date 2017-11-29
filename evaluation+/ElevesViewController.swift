@@ -8,14 +8,16 @@
 
 import UIKit
 
-
 class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var textFieldEleveName: UITextField!
     
     @IBOutlet weak var tableViewEleves: UITableView!
+    @IBOutlet weak var tableViewDisciplines: UITableView!
     
     var eleves = [EleveObj]()
+    var disciplines = [DisciplineObj]()
+    var disciplinesEleve = [DisciplineObj]()
     
     var userDefaultsManager = UserDefaultsManager()
     
@@ -26,10 +28,9 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func actionAddEleve(_ sender: UIButton) {
         let name = String(describing: textFieldEleveName.text!).trimmingCharacters(in: .whitespaces) 
         
-      /*  if name != ""
+        if name != "" && disciplinesEleve.count > 0
         {
-            let score = [CriteriaObj]()
-            let eleveObj = EleveObj(id: Int64(Date().timeIntervalSince1970 * 1000), name: name, score: score)
+            let eleveObj = EleveObj(id: Int64(Date().timeIntervalSince1970 * 1000), name: name, disciplines: disciplinesEleve)
             
             eleves.append(eleveObj)
             
@@ -42,29 +43,65 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         else
         {
-            let alertController = UIAlertController(title: "Evaluation+", message: "Please, put the name", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Evaluation+", message: "Please, put the name and select unless one discipline", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
-        }*/
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eleves.count
+        var count:Int?
+        
+        if tableView == self.tableViewEleves {
+            count = eleves.count
+        }
+        
+        if tableView == self.tableViewDisciplines {
+            count =  disciplines.count
+        }
+        
+        return count!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        var cell:UITableViewCell?
         
-        let name = eleves[indexPath.row].name
-        cell.textLabel?.text = name
+        if tableView == self.tableViewEleves {
+            cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+            let name = eleves[indexPath.row].name
+            cell?.textLabel?.text = name
+        }
         
-        return cell
+        if tableView == self.tableViewDisciplines {
+            cell = tableView.dequeueReusableCell(withIdentifier: "cell2")!
+            let description = disciplines[indexPath.row].desc
+            cell?.textLabel?.text = description
+        }
+        
+        return cell!
     }
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "evaluation", sender: self)
+        if tableView == self.tableViewEleves
+        {
+            self.performSegue(withIdentifier: "evaluation", sender: self)
+        }
+        else if tableView == self.tableViewDisciplines
+        {
+            let discipline = disciplines[indexPath.row]
+            disciplinesEleve.append(discipline)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if tableView == self.tableViewDisciplines
+        {
+           let id = disciplines[indexPath.row].id
+           let index = indexDisciplinesEleve(id: id!)
+           disciplinesEleve.remove(at: index)
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -93,9 +130,18 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
    
     override func viewDidLoad() {
+        
+        tableViewEleves.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableViewDisciplines.register(UITableViewCell.self, forCellReuseIdentifier: "cell2")
+        
         if userDefaultsManager.doesKeyExist(theKey: "eleves") {
             let data = userDefaultsManager.getData(theKey: "eleves")
             eleves = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [EleveObj])!
+        }
+        
+        if userDefaultsManager.doesKeyExist(theKey: "disciplines") {
+            let data = userDefaultsManager.getData(theKey: "disciplines")
+            disciplines = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [DisciplineObj])!
         }
         
         super.viewDidLoad()
@@ -103,6 +149,19 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view.
     }
 
+    
+    func indexDisciplinesEleve(id: Int64) -> Int
+    {
+        for index in 0..<disciplinesEleve.count
+        {
+            if disciplinesEleve[index].id == id
+            {
+                return index
+            }
+        }
+        return -1
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

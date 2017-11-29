@@ -13,8 +13,11 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBOutlet weak var textFieldDescription: UITextField!
     
     @IBOutlet weak var tableViewDisciplines: UITableView!
+    @IBOutlet weak var tableViewCriterias: UITableView!
     
     var disciplines = [DisciplineObj]()
+    var criterias = [CriteriaObj]()
+    var criteriasDiscipline = [CriteriaObj]()
     
     var userDefaultsManager = UserDefaultsManager()
     
@@ -25,10 +28,9 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func actionAddDiscipline(_ sender: UIButton) {
         let description = String(describing: textFieldDescription.text!).trimmingCharacters(in: .whitespaces)
         
-        if description != ""
+        if description != ""  && criteriasDiscipline.count > 0
          {
-            let criterias = [CriteriaObj]()
-            let disciplineObj = DisciplineObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, criterias: criterias)
+            let disciplineObj = DisciplineObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, criterias: criteriasDiscipline)
          
             disciplines.append(disciplineObj)
          
@@ -41,7 +43,7 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
          }
          else
          {
-            let alertController = UIAlertController(title: "Evaluation+", message: "Please, put the description", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Evaluation+", message: "Please, put the description and select unless one criteria", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
             alertController.addAction(defaultAction)
             present(alertController, animated: true, completion: nil)
@@ -50,20 +52,52 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return disciplines.count
+        var count:Int?
+        
+        if tableView == self.tableViewDisciplines {
+            count = disciplines.count
+        }
+        
+        if tableView == self.tableViewCriterias {
+            count =  criterias.count
+        }
+        
+        return count!
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        var cell:UITableViewCell?
         
-        let description = disciplines[indexPath.row].description
-        cell.textLabel?.text = description
+        if tableView == self.tableViewDisciplines {
+            cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+            let description = disciplines[indexPath.row].desc
+            cell?.textLabel?.text = description
+        }
         
-        return cell
+        if tableView == self.tableViewCriterias {
+            cell = tableView.dequeueReusableCell(withIdentifier: "cell2")!
+            let criteria = criterias[indexPath.row].desc
+            cell?.textLabel?.text = criteria
+        }
+        
+        return cell!
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "criteria", sender: self)
+        if tableView == self.tableViewCriterias
+        {
+            let criteria = criterias[indexPath.row]
+            criteriasDiscipline.append(criteria)
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        if tableView == self.tableViewCriterias
+        {
+            let id = criterias[indexPath.row].id
+            let index = indexCriteriasDiscipline(id: id!)
+            criteriasDiscipline.remove(at: index)
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -78,16 +112,37 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "criteria" ,
             let criteriaViewController = segue.destination as? CriteriaViewController ,
             let indexPath = tableViewDisciplines.indexPathForSelectedRow {
             let disciplineObj = disciplines[indexPath.row]
             criteriaViewController.disciplineObj = disciplineObj
         }
+    }*/
+    
+    
+    func indexCriteriasDiscipline(id: Int64) -> Int
+    {
+        for index in 0..<criteriasDiscipline.count
+        {
+            if criteriasDiscipline[index].id == id
+            {
+                return index
+            }
+        }
+        return -1
     }
     
     override func viewDidLoad() {
+        
+        tableViewDisciplines.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableViewCriterias.register(UITableViewCell.self, forCellReuseIdentifier: "cell2")
+        
+        if userDefaultsManager.doesKeyExist(theKey: "criterias") {
+            let data = userDefaultsManager.getData(theKey: "criterias")
+            criterias = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [CriteriaObj])!
+        }
         
         if userDefaultsManager.doesKeyExist(theKey: "disciplines") {
             let data = userDefaultsManager.getData(theKey: "disciplines")

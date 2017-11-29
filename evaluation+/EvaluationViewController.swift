@@ -15,13 +15,22 @@ class EvaluationTableViewCell: UITableViewCell {
     
 }
 
-class EvaluationViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
+
     @IBOutlet weak var labelEleve: UILabel!
     @IBOutlet weak var labelScore: UILabel!
     
+    @IBOutlet weak var pickerDisciplines: UIPickerView!
+    
+    @IBOutlet weak var tableViewEvaluation: UITableView!
+    
     var eleveObj: EleveObj!
     var scoreEleve = Float(0.0);
+    
+    var pickerData = [String]()
+    
+    var countCriteria = 0
+    var indexDiscipline = 0
     
     var userDefaultsManager = UserDefaultsManager()
     
@@ -30,24 +39,46 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5 /*eleveObj.score.count*/
+        return countCriteria
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "evaluation", for: indexPath) as! EvaluationTableViewCell
         
-      /*  let desc = eleveObj.score[indexPath.row].desc
-        
-        print( Float(eleveObj.score[indexPath.row].ponctuation)!)
+        let desc = eleveObj.disciplines[indexDiscipline].criterias[indexPath.row].desc
+        let ponctuation = Float(eleveObj.disciplines[indexDiscipline].criterias[indexPath.row].ponctuation)!
         
         cell.labelDescriptionCriteria.text = desc
-        cell.slidePonctuationCriteria.value = Float(eleveObj.score[indexPath.row].ponctuation)!*/
+        cell.slidePonctuationCriteria.value = ponctuation
         cell.slidePonctuationCriteria.tag = indexPath.row
         cell.slidePonctuationCriteria.addTarget(self, action:#selector(EvaluationViewController.sliderValueDidChange(_:)), for: .valueChanged)
         
         return cell
     }
     
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return pickerData[row]
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+       return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return pickerData.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        initTableView(row: row)
+    }
+    
+    func initTableView(row: Int)
+    {
+        countCriteria = eleveObj.disciplines[row].criterias.count
+        indexDiscipline = row
+        tableViewEvaluation.reloadData()
+    }
     
     @objc func sliderValueDidChange(_ sender:UISlider!)
     {
@@ -75,6 +106,16 @@ class EvaluationViewController: UIViewController, UITableViewDataSource, UITable
     
     
     override func viewDidLoad() {
+        
+        pickerDisciplines.dataSource = pickerData as? UIPickerViewDataSource
+        
+        for dicipline in eleveObj.disciplines
+        {
+            pickerData.append(dicipline.desc)
+        }
+        
+        initTableView(row: 0)
+        
        /* if userDefaultsManager.doesKeyExist(theKey: "criterias") {
             let data = userDefaultsManager.getData(theKey: "criterias")
             let criterias = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [CriteriaObj])!

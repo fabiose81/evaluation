@@ -21,10 +21,8 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var textFieldPonctuationCriteria: UITextField!
     
     @IBOutlet weak var tableViewCriteria: UITableView!
-    
-    var disciplineObj: DisciplineObj!
-    
-    var disciplines: [DisciplineObj]!
+
+    var criterias = [CriteriaObj]()
      
     var userDefaultsManager = UserDefaultsManager()
     
@@ -40,9 +38,10 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
         {
             let criteriaObj = CriteriaObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, ponctuation: ponctuation)
             
-            disciplineObj.criterias.append(criteriaObj)
+            criterias.append(criteriaObj)
             
-            setDiscipline(_discipline: disciplineObj)
+            let data = NSKeyedArchiver.archivedData(withRootObject: criterias);
+            userDefaultsManager.setKey(theValue: data as AnyObject, key: "criterias")
             
             tableViewCriteria.reloadData()
         }
@@ -68,14 +67,14 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return disciplineObj.criterias.count
+        return criterias.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "criteria", for: indexPath) as! CriteriaTableViewCell
        
-        let desc = disciplineObj.criterias[indexPath.row].desc
-        let ponctuation = disciplineObj.criterias[indexPath.row].ponctuation
+        let desc = criterias[indexPath.row].desc
+        let ponctuation = criterias[indexPath.row].ponctuation
         
         cell.labelDescriptionCriteria.text = desc
         cell.labelPonctuationCriteria.text = String(ponctuation)
@@ -86,16 +85,16 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete)
         {
-            disciplineObj.criterias.remove(at: indexPath.row)
+            criterias.remove(at: indexPath.row)
             
-            setDiscipline(_discipline: disciplineObj)
+          // setDiscipline(_discipline: disciplineObj)
             
             tableViewCriteria.deleteRows(at: [indexPath], with: .automatic)
         }
     }
     
     
-    func setDiscipline(_discipline: DisciplineObj){
+    /*func setDiscipline(_discipline: DisciplineObj){
         for index in 0..<disciplines.count{
             if disciplines[index].id == _discipline.id {
                 disciplines[index] = _discipline
@@ -105,12 +104,12 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
         
         let data = NSKeyedArchiver.archivedData(withRootObject: disciplines);
         userDefaultsManager.setKey(theValue: data as AnyObject, key: "disciplines")
-    }
+    }*/
     
     override func viewDidLoad() {
-        if userDefaultsManager.doesKeyExist(theKey: "disciplines") {
-            let data = userDefaultsManager.getData(theKey: "disciplines")
-            disciplines = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [DisciplineObj])!
+        if userDefaultsManager.doesKeyExist(theKey: "criterias") {
+            let data = userDefaultsManager.getData(theKey: "criterias")
+            criterias = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [CriteriaObj])!
         }
         
         super.viewDidLoad()
