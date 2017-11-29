@@ -117,34 +117,6 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         initTableView(row: 0)
         
-       /* if userDefaultsManager.doesKeyExist(theKey: "criterias") {
-            let data = userDefaultsManager.getData(theKey: "criterias")
-            let criterias = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [CriteriaObj])!
-            
-            if eleveObj.score.count == 0
-            {
-                eleveObj.score = criterias
-            }
-            else if eleveObj.score.count < criterias.count
-            {
-                for criteria in criterias {
-                    let found = findByCriteria(id: criteria.id)
-                    if (found == false){
-                        eleveObj.score.append(criteria)
-                    }
-                }
-            }else
-            {
-                for index in 0..<eleveObj.score.count
-                {
-                    let found = findEleve(id: eleveObj.score[index].id, criterias: criterias)
-                    if (found == false){
-                        eleveObj.score.remove(at: index)
-                    }
-                }
-            }
-        }*/
-        
         setScore()
         
         super.viewDidLoad()
@@ -163,25 +135,6 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         scoreEleve = sum * 100 / Float((eleveObj.disciplines[indexDiscipline].criterias.count * 100))
         labelScore.text = "\(String(Int(scoreEleve)))/100"
-    }
-    
-    func findByCriteria(id: Int64) -> Bool{
-        /*for eleve in eleveObj.score {
-            if eleve.id == id {
-                return true
-            }
-        }*/
-        return false;
-    }
-
-    func findEleve(id: Int64, criterias: [CriteriaObj]) -> Bool{
-        let _criterias = criterias
-        for criteria in _criterias {
-            if criteria.id == id {
-                return true
-            }
-        }
-        return false;
     }
     
     override func didReceiveMemoryWarning() {

@@ -111,7 +111,9 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
             {
                 disciplines.remove(at: indexPath.row)
                 tableViewDisciplines.deleteRows(at: [indexPath], with: .automatic)
-                // setDiscipline(_discipline: disciplineObj)
+                
+                let data = NSKeyedArchiver.archivedData(withRootObject: disciplines);
+                userDefaultsManager.setKey(theValue: data as AnyObject, key: "disciplines")
             }
             else
             {

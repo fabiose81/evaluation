@@ -11,14 +11,14 @@ import UIKit
 class CriteriaTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelDescriptionCriteria: UILabel!
-    @IBOutlet weak var labelPonctuationCriteria: UILabel!
+    @IBOutlet weak var labelWeightCriteria: UILabel!
     
 }
 
 class CriteriaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var textFieldDescriptionCriteria: UITextField!
-    @IBOutlet weak var textFieldPonctuationCriteria: UITextField!
+    @IBOutlet weak var textFieldWeightCriteria: UITextField!
     
     @IBOutlet weak var tableViewCriteria: UITableView!
 
@@ -34,11 +34,11 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func actionAddCriteria(_ sender: UIButton) {
         let description = String(describing: textFieldDescriptionCriteria.text!).trimmingCharacters(in: .whitespaces)
-        let ponctuation = String(describing: textFieldPonctuationCriteria.text!).trimmingCharacters(in: .whitespaces)
+        let weight = String(describing: textFieldWeightCriteria.text!).trimmingCharacters(in: .whitespaces)
         
-        if description != "" && ponctuation != ""
+        if description != "" && weight != ""
         {
-            let criteriaObj = CriteriaObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, ponctuation: ponctuation)
+            let criteriaObj = CriteriaObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, weight: weight, ponctuation: "0")
             
             criterias.append(criteriaObj)
             
@@ -65,7 +65,7 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     func hideKeyboard()
     {
         textFieldDescriptionCriteria.resignFirstResponder()
-        textFieldPonctuationCriteria.resignFirstResponder()
+        textFieldWeightCriteria.resignFirstResponder()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,10 +76,10 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCell(withIdentifier: "criteria", for: indexPath) as! CriteriaTableViewCell
        
         let desc = criterias[indexPath.row].desc
-        let ponctuation = criterias[indexPath.row].ponctuation
+        let weight = criterias[indexPath.row].weight
         
         cell.labelDescriptionCriteria.text = desc
-        cell.labelPonctuationCriteria.text = String(ponctuation)
+        cell.labelWeightCriteria.text = String(weight)
         
         return cell
     }
@@ -92,33 +92,16 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
             {
                 criterias.remove(at: indexPath.row)
                 tableViewCriteria.deleteRows(at: [indexPath], with: .automatic)
-                // setDiscipline(_discipline: disciplineObj)
+                
+                let data = NSKeyedArchiver.archivedData(withRootObject: criterias);
+                userDefaultsManager.setKey(theValue: data as AnyObject, key: "criterias")
             }
             else
             {
                 print("criteria vinculado a uma disciplina")
             }
-            
-            
-            
-          // setDiscipline(_discipline: disciplineObj)
-            
-            
         }
     }
-    
-    
-    /*func setDiscipline(_discipline: DisciplineObj){
-        for index in 0..<disciplines.count{
-            if disciplines[index].id == _discipline.id {
-                disciplines[index] = _discipline
-                break
-            }
-        }
-        
-        let data = NSKeyedArchiver.archivedData(withRootObject: disciplines);
-        userDefaultsManager.setKey(theValue: data as AnyObject, key: "disciplines")
-    }*/
     
     override func viewDidLoad() {
         if userDefaultsManager.doesKeyExist(theKey: "criterias") {
