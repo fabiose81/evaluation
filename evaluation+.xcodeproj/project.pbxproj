@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0096E01FCE6CF90076BE5D /* FindUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0096DF1FCE6CF90076BE5D /* FindUtil.swift */; };
 		9B8681FE1FCDBBA2002E4567 /* DisciplineObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */; };
 		9B8682001FCDBD87002E4567 /* DisciplineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */; };
 		9BE895571FBDF8D9005071B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE895561FBDF8D9005071B5 /* AppDelegate.swift */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C0096DF1FCE6CF90076BE5D /* FindUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUtil.swift; sourceTree = "<group>"; };
 		9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisciplineObj.swift; sourceTree = "<group>"; };
 		9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineViewController.swift; sourceTree = "<group>"; };
 		9BE895531FBDF8D9005071B5 /* evaluation+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "evaluation+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +83,7 @@
 				9BE895731FC46917005071B5 /* CriteriaViewController.swift */,
 				9BE8957F1FC487FD005071B5 /* CriteriaObj.swift */,
 				9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */,
+				4C0096DF1FCE6CF90076BE5D /* FindUtil.swift */,
 			);
 			path = "evaluation+";
 			sourceTree = "<group>";
@@ -160,6 +163,7 @@
 			files = (
 				9BE895691FBE17A8005071B5 /* ElevesViewController.swift in Sources */,
 				9BE895721FC32E9C005071B5 /* UserDefaultsManager.swift in Sources */,
+				4C0096E01FCE6CF90076BE5D /* FindUtil.swift in Sources */,
 				9BE895801FC487FD005071B5 /* CriteriaObj.swift in Sources */,
 				9BE8956E1FBE1F93005071B5 /* EleveObj.swift in Sources */,
 				9BE895591FBDF8D9005071B5 /* EvaluationViewController.swift in Sources */,

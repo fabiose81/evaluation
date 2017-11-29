@@ -78,6 +78,7 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         countCriteria = eleveObj.disciplines[row].criterias.count
         indexDiscipline = row
         tableViewEvaluation.reloadData()
+        setScore()
     }
     
     @objc func sliderValueDidChange(_ sender:UISlider!)
@@ -85,9 +86,9 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         let roundedValue = round(sender.value / 25) * 25
         sender.value = roundedValue
         
-     //   eleveObj.score[sender.tag].ponctuation = String(sender.value)
-   
-        xxx()
+        eleveObj.disciplines[indexDiscipline].criterias[sender.tag].ponctuation = String(sender.value)
+        
+        setScore()
     }
     
     @IBAction func actionSave(_ sender: UIButton) {
@@ -144,22 +145,24 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
             }
         }*/
         
-        xxx()
+        setScore()
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func xxx(){
-      /*  labelEleve.text = eleveObj.name
+    func setScore()
+    {
+        labelEleve.text = eleveObj.name
         var sum = Float(0.0);
-        for score in eleveObj.score
+        
+        for criteria in eleveObj.disciplines[indexDiscipline].criterias
         {
-            sum += Float(score.ponctuation)!
+            sum += Float(criteria.ponctuation)!
         }
         
-        scoreEleve = sum * 100 / Float((eleveObj.score.count * 100))
-        labelScore.text = "\(String(Int(scoreEleve)))/100"*/
+        scoreEleve = sum * 100 / Float((eleveObj.disciplines[indexDiscipline].criterias.count * 100))
+        labelScore.text = "\(String(Int(scoreEleve)))/100"
     }
     
     func findByCriteria(id: Int64) -> Bool{

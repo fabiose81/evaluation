@@ -19,7 +19,9 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     var criterias = [CriteriaObj]()
     var criteriasDiscipline = [CriteriaObj]()
     
-    var userDefaultsManager = UserDefaultsManager()
+    let userDefaultsManager = UserDefaultsManager()
+    
+    let findUtil = FindUtil()
     
     @IBAction func actionBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -103,24 +105,20 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete)
         {
-            disciplines.remove(at: indexPath.row)
             
-            let data = NSKeyedArchiver.archivedData(withRootObject: disciplines);
-            userDefaultsManager.setKey(theValue: data as AnyObject, key: "disciplines")
-            
-            tableViewDisciplines.deleteRows(at: [indexPath], with: .automatic)
+            let id = disciplines[indexPath.row].id
+            if !findUtil.findEleveByDiscipline(id:id!)
+            {
+                disciplines.remove(at: indexPath.row)
+                tableViewDisciplines.deleteRows(at: [indexPath], with: .automatic)
+                // setDiscipline(_discipline: disciplineObj)
+            }
+            else
+            {
+                print("discipline vinculado a um aluno")
+            }
         }
     }
-    
-   /* override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "criteria" ,
-            let criteriaViewController = segue.destination as? CriteriaViewController ,
-            let indexPath = tableViewDisciplines.indexPathForSelectedRow {
-            let disciplineObj = disciplines[indexPath.row]
-            criteriaViewController.disciplineObj = disciplineObj
-        }
-    }*/
-    
     
     func indexCriteriasDiscipline(id: Int64) -> Int
     {

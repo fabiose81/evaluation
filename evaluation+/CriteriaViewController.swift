@@ -24,7 +24,9 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
 
     var criterias = [CriteriaObj]()
      
-    var userDefaultsManager = UserDefaultsManager()
+    let userDefaultsManager = UserDefaultsManager()
+    
+    let findUtil = FindUtil()
     
     @IBAction func actionBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
@@ -85,11 +87,23 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete)
         {
-            criterias.remove(at: indexPath.row)
+            let id = criterias[indexPath.row].id
+            if !findUtil.findDisciplineByCriteria(id:id!)
+            {
+                criterias.remove(at: indexPath.row)
+                tableViewCriteria.deleteRows(at: [indexPath], with: .automatic)
+                // setDiscipline(_discipline: disciplineObj)
+            }
+            else
+            {
+                print("criteria vinculado a uma disciplina")
+            }
+            
+            
             
           // setDiscipline(_discipline: disciplineObj)
             
-            tableViewCriteria.deleteRows(at: [indexPath], with: .automatic)
+            
         }
     }
     
