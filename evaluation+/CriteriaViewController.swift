@@ -38,14 +38,23 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
         
         if description != "" && weight != ""
         {
-            let criteriaObj = CriteriaObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, weight: weight, ponctuation: "0")
-            
-            criterias.append(criteriaObj)
-            
-            let data = NSKeyedArchiver.archivedData(withRootObject: criterias);
-            userDefaultsManager.setKey(theValue: data as AnyObject, key: "criterias")
-            
-            tableViewCriteria.reloadData()
+            if let _weight = Int(weight), _weight > 0 && _weight < 101{
+                let criteriaObj = CriteriaObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, weight: weight, ponctuation: "0")
+                
+                criterias.append(criteriaObj)
+                
+                let data = NSKeyedArchiver.archivedData(withRootObject: criterias);
+                userDefaultsManager.setKey(theValue: data as AnyObject, key: "criterias")
+                
+                tableViewCriteria.reloadData()
+            }
+            else
+            {
+                let alertController = UIAlertController(title: "Evaluation+", message: "The weight of criteria must be between 1 and 100", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                present(alertController, animated: true, completion: nil)
+            }
         }
         else
         {
