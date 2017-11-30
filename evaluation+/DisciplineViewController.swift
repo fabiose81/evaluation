@@ -10,6 +10,8 @@ import UIKit
 
 class DisciplineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var viewTop: UIView!
+    
     @IBOutlet weak var textFieldDescription: UITextField!
     
     @IBOutlet weak var tableViewDisciplines: UITableView!
@@ -154,6 +156,9 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     override func viewDidLoad() {
+        
+        viewTop.layer.borderColor = UIColor(rgb: 0x8d8b8b).cgColor
+        viewTop.layer.borderWidth = 2
         
         tableViewDisciplines.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableViewCriterias.register(UITableViewCell.self, forCellReuseIdentifier: "cell2")

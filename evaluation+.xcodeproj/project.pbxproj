@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		4C0096E01FCE6CF90076BE5D /* FindUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0096DF1FCE6CF90076BE5D /* FindUtil.swift */; };
+		9B847FAA1FD04AD00002AB9C /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B847FA91FD04AD00002AB9C /* bg.png */; };
+		9B847FAC1FD04F800002AB9C /* cce.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B847FAB1FD04F800002AB9C /* cce.png */; };
+		9B847FAE1FD05E560002AB9C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B847FAD1FD05E560002AB9C /* MainViewController.swift */; };
+		9B847FB01FD05E900002AB9C /* UIColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B847FAF1FD05E900002AB9C /* UIColorUtil.swift */; };
+		9B847FB21FD065B10002AB9C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B847FB11FD065B10002AB9C /* logo.png */; };
+		9B847FB41FD071350002AB9C /* bg-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B847FB31FD071350002AB9C /* bg-button.png */; };
 		9B8681FE1FCDBBA2002E4567 /* DisciplineObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */; };
 		9B8682001FCDBD87002E4567 /* DisciplineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */; };
 		9BE895571FBDF8D9005071B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE895561FBDF8D9005071B5 /* AppDelegate.swift */; };
@@ -24,6 +30,12 @@
 
 /* Begin PBXFileReference section */
 		4C0096DF1FCE6CF90076BE5D /* FindUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUtil.swift; sourceTree = "<group>"; };
+		9B847FA91FD04AD00002AB9C /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
+		9B847FAB1FD04F800002AB9C /* cce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cce.png; sourceTree = "<group>"; };
+		9B847FAD1FD05E560002AB9C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9B847FAF1FD05E900002AB9C /* UIColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtil.swift; sourceTree = "<group>"; };
+		9B847FB11FD065B10002AB9C /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		9B847FB31FD071350002AB9C /* bg-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-button.png"; sourceTree = "<group>"; };
 		9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisciplineObj.swift; sourceTree = "<group>"; };
 		9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineViewController.swift; sourceTree = "<group>"; };
 		9BE895531FBDF8D9005071B5 /* evaluation+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "evaluation+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +63,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B847FA81FD04AAB0002AB9C /* image */ = {
+			isa = PBXGroup;
+			children = (
+				9B847FB31FD071350002AB9C /* bg-button.png */,
+				9B847FB11FD065B10002AB9C /* logo.png */,
+				9B847FAB1FD04F800002AB9C /* cce.png */,
+				9B847FA91FD04AD00002AB9C /* bg.png */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
 		9BE8954A1FBDF8D9005071B5 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +93,8 @@
 		9BE895551FBDF8D9005071B5 /* evaluation+ */ = {
 			isa = PBXGroup;
 			children = (
+				9B847FAF1FD05E900002AB9C /* UIColorUtil.swift */,
+				9B847FA81FD04AAB0002AB9C /* image */,
 				9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */,
 				9BE895711FC32E9C005071B5 /* UserDefaultsManager.swift */,
 				9BE895561FBDF8D9005071B5 /* AppDelegate.swift */,
@@ -84,6 +109,7 @@
 				9BE8957F1FC487FD005071B5 /* CriteriaObj.swift */,
 				9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */,
 				4C0096DF1FCE6CF90076BE5D /* FindUtil.swift */,
+				9B847FAD1FD05E560002AB9C /* MainViewController.swift */,
 			);
 			path = "evaluation+";
 			sourceTree = "<group>";
@@ -149,7 +175,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BE895611FBDF8D9005071B5 /* LaunchScreen.storyboard in Resources */,
+				9B847FAC1FD04F800002AB9C /* cce.png in Resources */,
+				9B847FB41FD071350002AB9C /* bg-button.png in Resources */,
+				9B847FB21FD065B10002AB9C /* logo.png in Resources */,
 				9BE8955E1FBDF8D9005071B5 /* Assets.xcassets in Resources */,
+				9B847FAA1FD04AD00002AB9C /* bg.png in Resources */,
 				9BE8955C1FBDF8D9005071B5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BE895691FBE17A8005071B5 /* ElevesViewController.swift in Sources */,
+				9B847FAE1FD05E560002AB9C /* MainViewController.swift in Sources */,
 				9BE895721FC32E9C005071B5 /* UserDefaultsManager.swift in Sources */,
 				4C0096E01FCE6CF90076BE5D /* FindUtil.swift in Sources */,
 				9BE895801FC487FD005071B5 /* CriteriaObj.swift in Sources */,
@@ -171,6 +202,7 @@
 				9B8682001FCDBD87002E4567 /* DisciplineViewController.swift in Sources */,
 				9BE895571FBDF8D9005071B5 /* AppDelegate.swift in Sources */,
 				9BE895741FC46917005071B5 /* CriteriaViewController.swift in Sources */,
+				9B847FB01FD05E900002AB9C /* UIColorUtil.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
