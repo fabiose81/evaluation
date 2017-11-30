@@ -100,7 +100,12 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
             cell = tableView.dequeueReusableCell(withIdentifier: "cell2")!
             let criteria = criterias[indexPath.row].desc
             let weight = criterias[indexPath.row].weight
-            cell?.textLabel?.text = "\(criteria) - \(weight) / 100"
+            
+            if let label = cell?.viewWithTag(100) as! UILabel!
+            {
+                label.text = "\(criteria) - \(weight) / 100"
+            }
+           
         }
         
         return cell!

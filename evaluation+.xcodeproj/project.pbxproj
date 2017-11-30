@@ -14,6 +14,7 @@
 		9B847FB01FD05E900002AB9C /* UIColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B847FAF1FD05E900002AB9C /* UIColorUtil.swift */; };
 		9B847FB21FD065B10002AB9C /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B847FB11FD065B10002AB9C /* logo.png */; };
 		9B847FB41FD071350002AB9C /* bg-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B847FB31FD071350002AB9C /* bg-button.png */; };
+		9B847FB61FD087180002AB9C /* bg-button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 9B847FB51FD087180002AB9C /* bg-button2.png */; };
 		9B8681FE1FCDBBA2002E4567 /* DisciplineObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */; };
 		9B8682001FCDBD87002E4567 /* DisciplineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */; };
 		9BE895571FBDF8D9005071B5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE895561FBDF8D9005071B5 /* AppDelegate.swift */; };
@@ -36,6 +37,7 @@
 		9B847FAF1FD05E900002AB9C /* UIColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtil.swift; sourceTree = "<group>"; };
 		9B847FB11FD065B10002AB9C /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		9B847FB31FD071350002AB9C /* bg-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-button.png"; sourceTree = "<group>"; };
+		9B847FB51FD087180002AB9C /* bg-button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-button2.png"; sourceTree = "<group>"; };
 		9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisciplineObj.swift; sourceTree = "<group>"; };
 		9B8681FF1FCDBD87002E4567 /* DisciplineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisciplineViewController.swift; sourceTree = "<group>"; };
 		9BE895531FBDF8D9005071B5 /* evaluation+.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "evaluation+.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -66,6 +68,7 @@
 		9B847FA81FD04AAB0002AB9C /* image */ = {
 			isa = PBXGroup;
 			children = (
+				9B847FB51FD087180002AB9C /* bg-button2.png */,
 				9B847FB31FD071350002AB9C /* bg-button.png */,
 				9B847FB11FD065B10002AB9C /* logo.png */,
 				9B847FAB1FD04F800002AB9C /* cce.png */,
@@ -179,6 +182,7 @@
 				9B847FB41FD071350002AB9C /* bg-button.png in Resources */,
 				9B847FB21FD065B10002AB9C /* logo.png in Resources */,
 				9BE8955E1FBDF8D9005071B5 /* Assets.xcassets in Resources */,
+				9B847FB61FD087180002AB9C /* bg-button2.png in Resources */,
 				9B847FAA1FD04AD00002AB9C /* bg.png in Resources */,
 				9BE8955C1FBDF8D9005071B5 /* Main.storyboard in Resources */,
 			);
