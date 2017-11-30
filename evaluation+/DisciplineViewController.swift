@@ -30,18 +30,36 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func actionAddDiscipline(_ sender: UIButton) {
         let description = String(describing: textFieldDescription.text!).trimmingCharacters(in: .whitespaces)
         
+        
         if description != ""  && criteriasDiscipline.count > 0
          {
-            let disciplineObj = DisciplineObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, criterias: criteriasDiscipline)
-         
-            disciplines.append(disciplineObj)
-         
-            let data = NSKeyedArchiver.archivedData(withRootObject: disciplines);
-            userDefaultsManager.setKey(theValue: data as AnyObject, key: "disciplines")
-         
-            tableViewDisciplines.reloadData()
-         
-            textFieldDescription.resignFirstResponder()
+            
+            var sum = 0
+            for criteria in criteriasDiscipline
+            {
+                sum += Int(criteria.weight)!
+            }
+            
+            if sum != 100
+            {
+                let alertController = UIAlertController(title: "Evaluation+", message: "The weight of criteria must be 100 in the total", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                present(alertController, animated: true, completion: nil)
+            }
+            else
+            {
+                let disciplineObj = DisciplineObj(id: Int64(Date().timeIntervalSince1970 * 1000), desc: description, criterias: criteriasDiscipline)
+                
+                disciplines.append(disciplineObj)
+                
+                let data = NSKeyedArchiver.archivedData(withRootObject: disciplines);
+                userDefaultsManager.setKey(theValue: data as AnyObject, key: "disciplines")
+                
+                tableViewDisciplines.reloadData()
+                
+                textFieldDescription.resignFirstResponder()
+            }
          }
          else
          {
@@ -79,7 +97,8 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
         if tableView == self.tableViewCriterias {
             cell = tableView.dequeueReusableCell(withIdentifier: "cell2")!
             let criteria = criterias[indexPath.row].desc
-            cell?.textLabel?.text = criteria
+            let weight = criterias[indexPath.row].weight
+            cell?.textLabel?.text = "\(criteria) - \(weight) / 100"
         }
         
         return cell!

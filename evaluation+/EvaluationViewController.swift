@@ -46,9 +46,10 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         let cell = tableView.dequeueReusableCell(withIdentifier: "evaluation", for: indexPath) as! EvaluationTableViewCell
         
         let desc = eleveObj.disciplines[indexDiscipline].criterias[indexPath.row].desc
+        let weight = eleveObj.disciplines[indexDiscipline].criterias[indexPath.row].weight
         let ponctuation = Float(eleveObj.disciplines[indexDiscipline].criterias[indexPath.row].ponctuation)!
         
-        cell.labelDescriptionCriteria.text = desc
+        cell.labelDescriptionCriteria.text = "\(desc) - \(weight) / 100"
         cell.slidePonctuationCriteria.value = ponctuation
         cell.slidePonctuationCriteria.tag = indexPath.row
         cell.slidePonctuationCriteria.addTarget(self, action:#selector(EvaluationViewController.sliderValueDidChange(_:)), for: .valueChanged)
@@ -87,7 +88,7 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         sender.value = roundedValue
         
         eleveObj.disciplines[indexDiscipline].criterias[sender.tag].ponctuation = String(sender.value)
-        
+ 
         setScore()
     }
     
@@ -103,6 +104,11 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         data = NSKeyedArchiver.archivedData(withRootObject: eleves);
         userDefaultsManager.setKey(theValue: data as AnyObject, key: "eleves")
+        
+        let alertController = UIAlertController(title: "Evaluation+", message: "Evaluation done", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        present(alertController, animated: true, completion: nil)
     }
     
     
@@ -117,6 +123,8 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         initTableView(row: 0)
         
+        labelEleve.text = eleveObj.name
+        
         setScore()
         
         super.viewDidLoad()
@@ -125,16 +133,24 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     func setScore()
     {
-        labelEleve.text = eleveObj.name
         var sum = Float(0.0);
         
         for criteria in eleveObj.disciplines[indexDiscipline].criterias
         {
-            sum += Float(criteria.ponctuation)!
+            sum += regleTrois(ponctuation: criteria.ponctuation, weight: criteria.weight)
         }
         
-        scoreEleve = sum * 100 / Float((eleveObj.disciplines[indexDiscipline].criterias.count * 100))
-        labelScore.text = "\(String(Int(scoreEleve)))/100"
+        labelScore.text = "\(sum) / 100"
+    }
+    
+    func regleTrois(ponctuation:String, weight: String) -> Float
+    {
+        let p = Float(ponctuation)
+        let w = Float(weight)
+        
+        let r = (w! * p!) / 100
+
+        return Float(r)
     }
     
     override func didReceiveMemoryWarning() {
