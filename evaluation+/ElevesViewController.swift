@@ -8,6 +8,12 @@
 
 import UIKit
 
+class EleveTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var labelNameEleve: UILabel!
+    
+}
+
 class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var viewTop: UIView!
@@ -67,20 +73,27 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell:UITableViewCell?
+        let cell = tableView.dequeueReusableCell(withIdentifier: "")
         
-        if tableView == self.tableViewEleves {
-            cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+        if tableView == self.tableViewEleves
+        {
+            let  cell = tableView.dequeueReusableCell(withIdentifier: "eleve", for: indexPath) as? EleveTableViewCell
+            
             let name = eleves[indexPath.row].name
-            cell?.textLabel?.text = name
+            
+            cell?.labelNameEleve.text = name
+            
+            return cell!
         }
-        
-        if tableView == self.tableViewDisciplines {
-            cell = tableView.dequeueReusableCell(withIdentifier: "cell2")!
+        else if tableView == self.tableViewDisciplines
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "discipline", for: indexPath) as? DisciplineTableViewCell
+            
             let description = disciplines[indexPath.row].desc
-            cell?.textLabel?.text = description
+            cell?.labelDescriptionDiscipline.text = description
+            
+            return cell!
         }
-        
         return cell!
     }
     

@@ -12,11 +12,14 @@ class EvaluationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelDescriptionCriteria: UILabel!
     @IBOutlet weak var slidePonctuationCriteria: UISlider!
+    @IBOutlet weak var labelScoreCriteria: UILabel!
     
 }
 
 class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var viewTop: UIView!
+    
     @IBOutlet weak var labelEleve: UILabel!
     @IBOutlet weak var labelScore: UILabel!
     
@@ -54,6 +57,23 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         cell.slidePonctuationCriteria.tag = indexPath.row
         cell.slidePonctuationCriteria.addTarget(self, action:#selector(EvaluationViewController.sliderValueDidChange(_:)), for: .valueChanged)
         
+          switch cell.slidePonctuationCriteria.value {
+            case 0:
+                cell.labelScoreCriteria.text = "Ruim"
+                break
+            case 25:
+                cell.labelScoreCriteria.text = "Regular"
+                break
+            case 50:
+                cell.labelScoreCriteria.text = "Bom"
+                break
+            case 75:
+                cell.labelScoreCriteria.text = "Otimo"
+                break
+            default:
+                cell.labelScoreCriteria.text = "Excelente"
+         }
+        
         return cell
     }
     
@@ -86,7 +106,7 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
     {
         let roundedValue = round(sender.value / 25) * 25
         sender.value = roundedValue
-        
+       
         eleveObj.disciplines[indexDiscipline].criterias[sender.tag].ponctuation = String(sender.value)
  
         setScore()
@@ -114,8 +134,12 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     override func viewDidLoad() {
         
-        pickerDisciplines.dataSource = pickerData as? UIPickerViewDataSource
+        viewTop.layer.borderColor = UIColor(rgb: 0x8d8b8b).cgColor
+        viewTop.layer.borderWidth = 2
         
+        pickerDisciplines.dataSource = pickerData as? UIPickerViewDataSource
+        pickerDisciplines.setValue(UIColor.white, forKey: "textColor")
+
         for dicipline in eleveObj.disciplines
         {
             pickerData.append(dicipline.desc)
@@ -141,6 +165,8 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         }
         
         labelScore.text = "\(sum) / 100"
+        
+        tableViewEvaluation.reloadData()
     }
     
     func regleTrois(ponctuation:String, weight: String) -> Float

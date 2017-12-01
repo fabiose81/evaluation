@@ -8,6 +8,12 @@
 
 import UIKit
 
+class DisciplineTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var labelDescriptionDiscipline: UILabel!
+    
+}
+
 class DisciplineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var viewTop: UIView!
@@ -71,7 +77,7 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
          }
     }
     
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count:Int?
         
@@ -87,24 +93,28 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell:CriteriaTableViewCell?
+      
+        let cell = tableView.dequeueReusableCell(withIdentifier: "")
         
         if tableView == self.tableViewDisciplines {
-            cell = tableView.dequeueReusableCell(withIdentifier: "criteria", for: indexPath) as? CriteriaTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "discipline", for: indexPath) as? DisciplineTableViewCell
             
             let description = disciplines[indexPath.row].desc
-            cell?.labelDescriptionCriteria.text = description
+            cell?.labelDescriptionDiscipline.text = description
+            
+            return cell!
         }
-        
-        if tableView == self.tableViewCriterias {
-            cell = tableView.dequeueReusableCell(withIdentifier: "criteria", for: indexPath) as? CriteriaTableViewCell
+        else if tableView == self.tableViewCriterias
+        {
+           let  cell = tableView.dequeueReusableCell(withIdentifier: "criteria", for: indexPath) as? CriteriaTableViewCell
           
             let criteria = criterias[indexPath.row].desc
             let weight = criterias[indexPath.row].weight
             
             cell?.labelDescriptionCriteria.text = "\(criteria) - \(weight) / 100"
+            
+            return cell!
         }
-        
         return cell!
     }
     
