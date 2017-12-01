@@ -10,6 +10,8 @@ import UIKit
 
 class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var viewTop: UIView!
+    
     @IBOutlet weak var textFieldEleveName: UITextField!
     
     @IBOutlet weak var tableViewEleves: UITableView!
@@ -130,6 +132,9 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
    
     override func viewDidLoad() {
+        
+        viewTop.layer.borderColor = UIColor(rgb: 0x8d8b8b).cgColor
+        viewTop.layer.borderWidth = 2
         
         tableViewEleves.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableViewDisciplines.register(UITableViewCell.self, forCellReuseIdentifier: "cell2")

@@ -32,7 +32,6 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     @IBAction func actionAddDiscipline(_ sender: UIButton) {
         let description = String(describing: textFieldDescription.text!).trimmingCharacters(in: .whitespaces)
         
-        
         if description != ""  && criteriasDiscipline.count > 0
          {
             
@@ -88,24 +87,22 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var cell:UITableViewCell?
+        var cell:CriteriaTableViewCell?
         
         if tableView == self.tableViewDisciplines {
-            cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
+            cell = tableView.dequeueReusableCell(withIdentifier: "criteria", for: indexPath) as? CriteriaTableViewCell
+            
             let description = disciplines[indexPath.row].desc
-            cell?.textLabel?.text = description
+            cell?.labelDescriptionCriteria.text = description
         }
         
         if tableView == self.tableViewCriterias {
-            cell = tableView.dequeueReusableCell(withIdentifier: "cell2")!
+            cell = tableView.dequeueReusableCell(withIdentifier: "criteria", for: indexPath) as? CriteriaTableViewCell
+          
             let criteria = criterias[indexPath.row].desc
             let weight = criterias[indexPath.row].weight
             
-            if let label = cell?.viewWithTag(100) as! UILabel!
-            {
-                label.text = "\(criteria) - \(weight) / 100"
-            }
-           
+            cell?.labelDescriptionCriteria.text = "\(criteria) - \(weight) / 100"
         }
         
         return cell!

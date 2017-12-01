@@ -17,6 +17,8 @@ class CriteriaTableViewCell: UITableViewCell {
 
 class CriteriaViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    @IBOutlet weak var viewTop: UIView!
+    
     @IBOutlet weak var textFieldDescriptionCriteria: UITextField!
     @IBOutlet weak var textFieldWeightCriteria: UITextField!
     
@@ -88,7 +90,7 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
         let weight = criterias[indexPath.row].weight
         
         cell.labelDescriptionCriteria.text = desc
-        cell.labelWeightCriteria.text = String(weight)
+        cell.labelWeightCriteria.text = "\(String(weight)) / 100"
         
         return cell
     }
@@ -113,6 +115,10 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     override func viewDidLoad() {
+        
+        viewTop.layer.borderColor = UIColor(rgb: 0x8d8b8b).cgColor
+        viewTop.layer.borderWidth = 2
+        
         if userDefaultsManager.doesKeyExist(theKey: "criterias") {
             let data = userDefaultsManager.getData(theKey: "criterias")
             criterias = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [CriteriaObj])!
