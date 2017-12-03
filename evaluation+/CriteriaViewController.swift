@@ -49,6 +49,10 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
                 userDefaultsManager.setKey(theValue: data as AnyObject, key: "criterias")
                 
                 tableViewCriteria.reloadData()
+                
+                textFieldDescriptionCriteria.text = ""
+                textFieldWeightCriteria.text = ""
+                
             }
             else
             {

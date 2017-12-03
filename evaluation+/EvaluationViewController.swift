@@ -109,6 +109,10 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
        
         eleveObj.disciplines[indexDiscipline].criterias[sender.tag].ponctuation = String(sender.value)
  
+        tableViewEvaluation.beginUpdates()
+        let indexPath = IndexPath(row: sender.tag, section: 0)
+        tableViewEvaluation.reloadRows(at: [indexPath], with: .automatic)
+         
         setScore()
     }
     
@@ -166,7 +170,6 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         labelScore.text = "\(sum) / 100"
         
-        tableViewEvaluation.reloadData()
     }
     
     func regleTrois(ponctuation:String, weight: String) -> Float

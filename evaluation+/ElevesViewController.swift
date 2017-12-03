@@ -47,6 +47,8 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             tableViewEleves.reloadData()
             
+            textFieldEleveName.text = ""
+            
             textFieldEleveName.resignFirstResponder()
         }
         else

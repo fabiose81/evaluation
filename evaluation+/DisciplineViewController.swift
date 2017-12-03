@@ -65,6 +65,8 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
                 
                 tableViewDisciplines.reloadData()
                 
+                textFieldDescription.text = ""
+                
                 textFieldDescription.resignFirstResponder()
             }
          }
