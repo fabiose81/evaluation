@@ -59,19 +59,19 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         
           switch cell.slidePonctuationCriteria.value {
             case 0:
-                cell.labelScoreCriteria.text = "Ruim"
+                cell.labelScoreCriteria.text = "Bad"
                 break
             case 25:
                 cell.labelScoreCriteria.text = "Regular"
                 break
             case 50:
-                cell.labelScoreCriteria.text = "Bom"
+                cell.labelScoreCriteria.text = "Good"
                 break
             case 75:
-                cell.labelScoreCriteria.text = "Otimo"
+                cell.labelScoreCriteria.text = "Great"
                 break
             default:
-                cell.labelScoreCriteria.text = "Excelente"
+                cell.labelScoreCriteria.text = "Excelent"
          }
         
         return cell
