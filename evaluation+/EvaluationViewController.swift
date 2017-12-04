@@ -108,11 +108,10 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         sender.value = roundedValue
        
         eleveObj.disciplines[indexDiscipline].criterias[sender.tag].ponctuation = String(sender.value)
- 
-        tableViewEvaluation.beginUpdates()
+        
         let indexPath = IndexPath(row: sender.tag, section: 0)
-        tableViewEvaluation.reloadRows(at: [indexPath], with: .automatic)
-         
+        tableViewEvaluation.reloadRows(at: [indexPath], with: .none)
+
         setScore()
     }
     
