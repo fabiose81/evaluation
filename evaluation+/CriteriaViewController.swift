@@ -2,12 +2,13 @@
 //  CriteriaViewController.swift
 //  evaluation+
 //
-//  Created by eleves on 2017-11-21.
-//  Copyright © 2017 eleves. All rights reserved.
+//  Created by Fabio Estrela on 2017-11-21.
+//  Copyright © 2017 Fabio Estrela. All rights reserved.
 //
 
 import UIKit
 
+//Class pour la cellule customisé de la tableview
 class CriteriaTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelDescriptionCriteria: UILabel!
@@ -30,10 +31,14 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
     
     let findUtil = FindUtil()
     
+    
+    //Fonction pour retourner à la view anterior
     @IBAction func actionBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    
+    //Fonction pour enregistrer le criteria
     @IBAction func actionAddCriteria(_ sender: UIButton) {
         let description = String(describing: textFieldDescriptionCriteria.text!).trimmingCharacters(in: .whitespaces)
         let weight = String(describing: textFieldWeightCriteria.text!).trimmingCharacters(in: .whitespaces)
@@ -113,7 +118,11 @@ class CriteriaViewController: UIViewController, UITableViewDelegate, UITableView
             }
             else
             {
-                print("criteria vinculado a uma disciplina")
+                let message = "Criteria associated with an assignment. Cannot be deleted"
+                let alertController = UIAlertController(title: "Evaluation+", message: message, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                present(alertController, animated: true, completion: nil)
             }
         }
     }

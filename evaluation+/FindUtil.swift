@@ -3,11 +3,12 @@
 //  evaluation+
 //
 //  Created by Fabio Estrela on 17-11-28.
-//  Copyright © 2017 eleves. All rights reserved.
+//  Copyright © 2017 Fabio Estrela. All rights reserved.
 //
 
 import Foundation
 
+// Class pour faire recherche dans UserDefaults
 class FindUtil: NSObject{
     
     func findDisciplineByCriteria(id: Int64) -> Bool

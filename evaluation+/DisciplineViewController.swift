@@ -2,12 +2,13 @@
 //  DisciplineViewController.swift
 //  evaluation+
 //
-//  Created by eleves on 2017-11-28.
-//  Copyright © 2017 eleves. All rights reserved.
+//  Created by Fabio Estrela on 2017-11-28.
+//  Copyright © 2017 Fabio Estrela. All rights reserved.
 //
 
 import UIKit
 
+//Class pour la cellule customisé de la tableview
 class DisciplineTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelDescriptionDiscipline: UILabel!
@@ -31,10 +32,12 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
     
     let findUtil = FindUtil()
     
+    //Fonction pour retourner à la view anterior
     @IBAction func actionBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    //Fonction pour enregistrer le discipline
     @IBAction func actionAddDiscipline(_ sender: UIButton) {
         let description = String(describing: textFieldDescription.text!).trimmingCharacters(in: .whitespaces)
         
@@ -152,11 +155,16 @@ class DisciplineViewController: UIViewController, UITableViewDelegate, UITableVi
             }
             else
             {
-                print("discipline vinculado a um aluno")
+                let message = "Assignment associated with a student. Cannot be deleted"
+                let alertController = UIAlertController(title: "Evaluation+", message: message, preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "Close", style: .default, handler: nil)
+                alertController.addAction(defaultAction)
+                present(alertController, animated: true, completion: nil)
             }
         }
     }
     
+    //Fonction pour obtenir le position de la criteria dans le tableau selon une indentification
     func indexCriteriasDiscipline(id: Int64) -> Int
     {
         for index in 0..<criteriasDiscipline.count

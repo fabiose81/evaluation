@@ -1,13 +1,14 @@
 //
-//  SujetObj.swift
+//  DisciplineObj
 //  evaluation+
 //
-//  Created by eleves on 2017-11-28.
-//  Copyright © 2017 eleves. All rights reserved.
+//  Created by Fabio Estrela on 2017-11-28.
+//  Copyright © 2017 Fabio Estrela. All rights reserved.
 //
 
 import Foundation
 
+//Structure pour le object de la class Discipline
 class DisciplineObj: NSObject, NSCoding {
     
     var id: Int64!
@@ -20,12 +21,14 @@ class DisciplineObj: NSObject, NSCoding {
         self.criterias = criterias
     }
     
+    //Fonction pour la decodification de la structure pour l'utilisation de UserDefaults
     required init(coder decoder: NSCoder) {
         id = decoder.decodeObject(forKey: "id") as? Int64
         desc = decoder.decodeObject(forKey: "desc") as? String
         criterias = (decoder.decodeObject(forKey: "criterias") as? [CriteriaObj])!
     }
     
+    //Fonction pour la codification de la structure pour l'utilisation de UserDefaults
     func encode(with coder: NSCoder) {
         coder.encode(id, forKey: "id")
         coder.encode(desc, forKey: "desc")

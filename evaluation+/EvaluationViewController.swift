@@ -1,13 +1,14 @@
 //
-//  ViewController.swift
+//  EvaluationTableViewCell
 //  evaluation+
 //
-//  Created by eleves on 2017-11-16.
-//  Copyright © 2017 eleves. All rights reserved.
+//  Created by Fabio Estrela on 2017-11-16.
+//  Copyright © 2017 Fabio Estrela. All rights reserved.
 //
 
 import UIKit
 
+//Class pour la cellule customisé de la tableview
 class EvaluationTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelDescriptionCriteria: UILabel!
@@ -37,6 +38,7 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     var userDefaultsManager = UserDefaultsManager()
     
+    //Fonction pour retourner à la view anterior
     @IBAction func actionBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -102,6 +104,7 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         setScore()
     }
     
+    //Fonction pour mettre le note de l'évaluation
     @objc func sliderValueDidChange(_ sender:UISlider!)
     {
         let roundedValue = round(sender.value / 25) * 25
@@ -115,6 +118,7 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         setScore()
     }
     
+    //Fonction pour enregistrer l'évaluation
     @IBAction func actionSave(_ sender: UIButton) {
         var data = userDefaultsManager.getData(theKey: "eleves")
         var eleves = (NSKeyedUnarchiver.unarchiveObject(with: data ) as? [EleveObj])!
@@ -158,6 +162,7 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    //Fonction pour afficher le résultat d'evaluation
     func setScore()
     {
         var sum = Float(0.0);
@@ -171,6 +176,7 @@ class EvaluationViewController: UIViewController, UIPickerViewDataSource, UIPick
         
     }
     
+    //Fonction pour faire la regle de trois
     func regleTrois(ponctuation:String, weight: String) -> Float
     {
         let p = Float(ponctuation)

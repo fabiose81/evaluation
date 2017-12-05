@@ -2,12 +2,13 @@
 //  ElevesViewController.swift
 //  evaluation+
 //
-//  Created by eleves on 2017-11-16.
-//  Copyright © 2017 eleves. All rights reserved.
+//  Created by Fabio Estrela on 2017-11-16.
+//  Copyright © 2017 Fabio Estrela. All rights reserved.
 //
 
 import UIKit
 
+//Class pour la cellule customisé de la tableview
 class EleveTableViewCell: UITableViewCell {
     
     @IBOutlet weak var labelNameEleve: UILabel!
@@ -29,10 +30,12 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     var userDefaultsManager = UserDefaultsManager()
     
+    //Fonction pour retourner à la view anterior
     @IBAction func actionBack(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
+    //Fonction pour enregistrer l'eleve
     @IBAction func actionAddEleve(_ sender: UIButton) {
         let name = String(describing: textFieldEleveName.text!).trimmingCharacters(in: .whitespaces) 
         
@@ -142,10 +145,6 @@ class ElevesViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    @IBAction func back(_ sender: UIButton){
-        navigationController?.popViewController(animated: true)
-    }
-   
     override func viewDidLoad() {
         
         viewTop.layer.borderColor = UIColor(rgb: 0x8d8b8b).cgColor
