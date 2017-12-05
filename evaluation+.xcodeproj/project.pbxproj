@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4C0096E01FCE6CF90076BE5D /* FindUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0096DF1FCE6CF90076BE5D /* FindUtil.swift */; };
-		4CFEC76E1FD0EBDD00D2ED80 /* bg-button2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEC7691FD0EBDD00D2ED80 /* bg-button2.png */; };
-		4CFEC76F1FD0EBDD00D2ED80 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEC76A1FD0EBDD00D2ED80 /* bg.png */; };
-		4CFEC7701FD0EBDD00D2ED80 /* bg-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEC76B1FD0EBDD00D2ED80 /* bg-button.png */; };
-		4CFEC7711FD0EBDD00D2ED80 /* cce.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEC76C1FD0EBDD00D2ED80 /* cce.png */; };
-		4CFEC7721FD0EBDD00D2ED80 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4CFEC76D1FD0EBDD00D2ED80 /* logo.png */; };
 		9B847FAE1FD05E560002AB9C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B847FAD1FD05E560002AB9C /* MainViewController.swift */; };
 		9B847FB01FD05E900002AB9C /* UIColorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B847FAF1FD05E900002AB9C /* UIColorUtil.swift */; };
 		9B8681FE1FCDBBA2002E4567 /* DisciplineObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */; };
@@ -31,11 +26,6 @@
 
 /* Begin PBXFileReference section */
 		4C0096DF1FCE6CF90076BE5D /* FindUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindUtil.swift; sourceTree = "<group>"; };
-		4CFEC7691FD0EBDD00D2ED80 /* bg-button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-button2.png"; sourceTree = "<group>"; };
-		4CFEC76A1FD0EBDD00D2ED80 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg.png; sourceTree = "<group>"; };
-		4CFEC76B1FD0EBDD00D2ED80 /* bg-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg-button.png"; sourceTree = "<group>"; };
-		4CFEC76C1FD0EBDD00D2ED80 /* cce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cce.png; sourceTree = "<group>"; };
-		4CFEC76D1FD0EBDD00D2ED80 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		9B847FAD1FD05E560002AB9C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		9B847FAF1FD05E900002AB9C /* UIColorUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorUtil.swift; sourceTree = "<group>"; };
 		9B8681FD1FCDBBA2002E4567 /* DisciplineObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisciplineObj.swift; sourceTree = "<group>"; };
@@ -68,11 +58,6 @@
 		4CFEC7681FD0EBA700D2ED80 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				4CFEC76B1FD0EBDD00D2ED80 /* bg-button.png */,
-				4CFEC7691FD0EBDD00D2ED80 /* bg-button2.png */,
-				4CFEC76A1FD0EBDD00D2ED80 /* bg.png */,
-				4CFEC76C1FD0EBDD00D2ED80 /* cce.png */,
-				4CFEC76D1FD0EBDD00D2ED80 /* logo.png */,
 			);
 			path = images;
 			sourceTree = "<group>";
@@ -177,13 +162,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CFEC76F1FD0EBDD00D2ED80 /* bg.png in Resources */,
 				9BE895611FBDF8D9005071B5 /* LaunchScreen.storyboard in Resources */,
-				4CFEC76E1FD0EBDD00D2ED80 /* bg-button2.png in Resources */,
-				4CFEC7711FD0EBDD00D2ED80 /* cce.png in Resources */,
-				4CFEC7721FD0EBDD00D2ED80 /* logo.png in Resources */,
 				9BE8955E1FBDF8D9005071B5 /* Assets.xcassets in Resources */,
-				4CFEC7701FD0EBDD00D2ED80 /* bg-button.png in Resources */,
 				9BE8955C1FBDF8D9005071B5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
