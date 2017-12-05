@@ -11,8 +11,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Noteworthy.ttc">
-            <string>Noteworthy-Bold</string>
+        <array key="Champagne &amp; Limousines Bold.ttf">
+            <string>Champagne&amp;Limousines-Bold</string>
+        </array>
+        <array key="Champagne &amp; Limousines.ttf">
+            <string>Champagne&amp;Limousines</string>
         </array>
     </customFonts>
     <scenes>
@@ -45,19 +48,19 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u27-Q6-Vi5">
                                                     <rect key="frame" x="5" y="11" width="389" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
-                                                    <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFN-yq-c3C">
                                                     <rect key="frame" x="7" y="88" width="387" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
-                                                    <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.7623976469" green="0.66164469719999996" blue="0.3961029351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.74663233760000003" green="0.68166679139999997" blue="0.35295209290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="labelDescriptionCriteria" destination="u27-Q6-Vi5" id="IJS-cz-821"/>
@@ -74,14 +77,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gTG-nf-5e3">
                                 <rect key="frame" x="5" y="336" width="404" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dp-5o-ugS">
                                 <rect key="frame" x="5" y="116" width="404" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="30"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -92,7 +95,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="StO-PJ-N43">
                                         <rect key="frame" x="8" y="23" width="78" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
                                         <state key="normal" title="Back" backgroundImage="bg-button.png">
                                             <color key="titleColor" red="0.7623976469" green="0.66164469719999996" blue="0.3961029351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
@@ -103,7 +106,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDH-nu-uH6">
                                         <rect key="frame" x="318" y="21" width="78" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
                                         <state key="normal" title="Save" backgroundImage="bg-button.png">
                                             <color key="titleColor" red="0.7623976469" green="0.66164469719999996" blue="0.3961029351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
@@ -118,8 +121,8 @@
                                 </subviews>
                             </view>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qrT-Yg-Fok">
-                                <rect key="frame" x="79" y="169" width="256" height="154"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="5" y="169" width="404" height="154"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Ilk-WM-exQ"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="TRj-2v-VDM"/>
@@ -164,12 +167,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1In-DO-lNT">
                                                     <rect key="frame" x="5" y="6" width="396" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
-                                                    <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.7623976469" green="0.66164469719999996" blue="0.3961029351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.74663233760000003" green="0.68166679139999997" blue="0.35295209290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="labelNameEleve" destination="1In-DO-lNT" id="kGB-AL-Fdu"/>
@@ -185,7 +188,7 @@
                                 <rect key="frame" x="5" y="116" width="404" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="08E-mQ-YYy">
@@ -203,12 +206,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBL-pV-vBI">
                                                     <rect key="frame" x="5" y="6" width="396" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
-                                                    <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.7623976469" green="0.66164469719999996" blue="0.3961029351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.74663233757019043" green="0.6816667914390564" blue="0.35295209288597107" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="labelDescriptionDiscipline" destination="mBL-pV-vBI" id="X3i-dH-vJa"/>
@@ -227,7 +230,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4tS-l4-dYr">
                                         <rect key="frame" x="8" y="23" width="78" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
                                         <state key="normal" title="Back" backgroundImage="bg-button.png">
                                             <color key="titleColor" red="0.7623976469" green="0.66164469719999996" blue="0.3961029351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
@@ -245,14 +248,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Assignments" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0fg-dI-eve">
                                 <rect key="frame" x="5" y="167" width="404" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="20"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sYc-JK-ksQ">
                                 <rect key="frame" x="103" y="381" width="200" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="20"/>
                                 <state key="normal" title="Add" backgroundImage="bg-button2.png">
                                     <color key="titleColor" red="0.7623976469" green="0.66164469719999996" blue="0.3961029351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -289,7 +292,7 @@
                                 <rect key="frame" x="5" y="116" width="404" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.55308568479999998" green="0.54510170219999998" blue="0.54493701459999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aAx-gi-cbP">
@@ -307,12 +310,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PVz-Hj-QEb">
                                                     <rect key="frame" x="5" y="6" width="395" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
-                                                    <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.78780776259999996" green="0.65821552279999995" blue="0.35079160329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.74663233760000003" green="0.68166679139999997" blue="0.35295209290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="labelDescriptionDiscipline" destination="PVz-Hj-QEb" id="TY2-Ia-tm4"/>
@@ -339,12 +342,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHY-iH-8D8">
                                                     <rect key="frame" x="5" y="6" width="395" height="38"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
-                                                    <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.78780776259999996" green="0.65821552279999995" blue="0.35079160329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.74663233760000003" green="0.68166679139999997" blue="0.35295209290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="labelDescriptionCriteria" destination="SHY-iH-8D8" id="VSz-fC-VcA"/>
@@ -367,7 +370,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sur-gZ-8cD">
                                         <rect key="frame" x="8" y="23" width="78" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                        <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
                                         <state key="normal" title="Back" backgroundImage="bg-button.png">
                                             <color key="titleColor" red="0.78780776262283325" green="0.65821552276611328" blue="0.35079160332679749" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -380,7 +383,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LUy-0w-tva">
                                 <rect key="frame" x="107" y="372" width="200" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="20"/>
                                 <state key="normal" title="Add" backgroundImage="bg-button2.png">
                                     <color key="titleColor" red="0.78780776259999996" green="0.65821552279999995" blue="0.35079160329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -391,7 +394,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Criterias" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGb-qF-gZ3">
                                 <rect key="frame" x="5" y="167" width="404" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="20"/>
                                 <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -422,7 +425,7 @@
                                 <rect key="frame" x="5" y="546" width="404" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.70588235290000001" green="0.62352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
                                 <state key="normal" title="STUDENT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -434,7 +437,7 @@
                                 <rect key="frame" x="5" y="338" width="404" height="165"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.70588235290000001" green="0.62352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
                                 <state key="normal" title="ASSIGNMENT">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -461,7 +464,7 @@
                                 <rect key="frame" x="5" y="128" width="404" height="167"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.70588235290000001" green="0.62352941179999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
                                 <state key="normal" title="CRITERIA">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -500,13 +503,13 @@
                                 <rect key="frame" x="5" y="173" width="100" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines" family="Champagne &amp; Limousines" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i64-MO-eE4">
                                 <rect key="frame" x="127" y="173" width="282" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="17"/>
                                 <state key="normal" title="Hide Keyboard" backgroundImage="bg-button2.png">
                                     <color key="titleColor" red="0.7623976469" green="0.66164469719999996" blue="0.3961029351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -518,13 +521,13 @@
                                 <rect key="frame" x="5" y="116" width="404" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.55293196439743042" green="0.54516422748565674" blue="0.54515969753265381" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0j-hb-WeT">
                                 <rect key="frame" x="107" y="228" width="200" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="20"/>
                                 <state key="normal" title="Add" backgroundImage="bg-button2.png">
                                     <color key="titleColor" red="0.7623976469" green="0.66164469719999996" blue="0.3961029351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -539,6 +542,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mT-gE-Mbr">
                                         <rect key="frame" x="8" y="23" width="78" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
                                         <state key="normal" title="Back" backgroundImage="bg-button.png">
                                             <color key="titleColor" red="0.7623976469039917" green="0.66164469718933105" blue="0.39610293507575989" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
@@ -567,19 +571,19 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6dV-Pr-m6h">
                                                     <rect key="frame" x="5" y="5" width="395" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="25"/>
-                                                    <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="25"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qnb-UP-AwB">
                                                     <rect key="frame" x="5" y="53" width="391" height="40"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="20"/>
-                                                    <color key="textColor" red="0.55293196440000003" green="0.54516422750000004" blue="0.54515969750000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <fontDescription key="fontDescription" name="Champagne&amp;Limousines-Bold" family="Champagne &amp; Limousines" pointSize="20"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.7623976469" green="0.66164469719999996" blue="0.3961029351" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="backgroundColor" red="0.74663233760000003" green="0.68166679139999997" blue="0.35295209290000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="labelDescriptionCriteria" destination="6dV-Pr-m6h" id="uF8-1J-VoY"/>
